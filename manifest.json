@@ -31,7 +31,7 @@
 		"js": ["js/vendor/jquery-3.3.1.min.js", "js/addDelBtn.js"]
 	},
 	{
-		"matches": ["https://github.com/*/*/settings"],
+		"matches": ["https://github.com/*/*/settings?egrd=True"],
 		"js": ["js/vendor/jquery-3.3.1.min.js", "js/delRepo.js"]
 	}
   ]

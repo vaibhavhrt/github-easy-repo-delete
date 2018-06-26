@@ -18,13 +18,17 @@
   },
   
   "permissions": [
-    	"contextMenus",
-    	"tabs",
-		"activeTab",
-        "https://github.com/*?tab=repositories",
-        "https://github.com/*"
+    "contextMenus",
+    "tabs",
+	"activeTab",
+    "https://github.com/*?tab=repositories",
+    "https://github.com/*"
   ],
   
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+
   "content_scripts": [
 	{
 		"matches": ["https://github.com/*?tab=repositories"],

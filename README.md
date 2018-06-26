@@ -1,6 +1,6 @@
 # github-easy-repo-delete
 ## Use extreme caution when using this, once a github repo is deleted it's NEVER coming back.
-Deleting repos on github can a little long process(and for the right reasons because an its irreversible action) and when you have a lot of github repos to delete it can be very time consuming.
+Deleting repos on github can a little long process(and for the right reasons because its an irreversible action) and when you have a lot of github repos to delete it can be very time consuming.
 
 Adds a delete link to all your repos on "https://github.com/your-username?tab=repositories" page.
 

@@ -4,6 +4,6 @@ Deleting repos on github can a little long process(and for the right reasons bec
 
 Adds a delete link to all your repos on "https://github.com/your-username?tab=repositories" page.
 
-Opens a new page and deletes the repository automatically. Does not closes that tab after deleting the repo which is a bug and will be fixed at a later stage.
+Opens a new page and deletes the repository automatically.
 
 I had to delete hundreds of repos from my github account thats why I made this, its not perfeact but helped to ease up the the process a little bit.

@@ -9,7 +9,7 @@ chrome.runtime.onMessage.addListener(
         sendResponse({
             farewell: "Received links Deleting " + linksToDelete.length + " repos"
         });
-    return true;
+        return true;
     }
 );
 
@@ -33,14 +33,14 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
         //Check if there is any more repos to deleted
         if(i < linksToDelete.length-1){
             i+=1;
-            deleteRepos(linksToDelete[i])
+            deleteRepos(linksToDelete[i]);
         }
         //send message that all repos successfully deleted
         else{
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
                 chrome.tabs.sendMessage(tabs[0].id, {greeting: "DEL OK"}, function(response) {
                     console.log(response.farewell);
-                });  
+                });
             });
         }
     }

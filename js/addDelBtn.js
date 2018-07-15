@@ -1,18 +1,18 @@
 //add delete all selected repos button
-$('<div class="border-bottom border-gray-dark py-3"><button class="egrd btn btn-sm btn-danger">Delete Selected Repos</button></div>').insertAfter('.border-bottom.border-gray-dark.py-3');
+$("<div class='border-bottom border-gray-dark py-3'><button class='egrd btn btn-sm btn-danger'>Delete Selected Repos</button></div>").insertAfter(".border-bottom.border-gray-dark.py-3");
 
-$link ='';
+var $link ="";
 $("#user-repositories-list .border-bottom").each(function() {
     $link=$(this).find("h3 a").attr("href");
     $("<input type='checkbox' value="+$link+" class='egrd'/>").appendTo(this);
-    $('<span class="label" style="color: red">Delete Repo</span>').appendTo(this);
+    $("<span class='label' style='color: red'>Delete Repo</span>").appendTo(this);
 });
 
 //get list of selected repos
-$links = [];
-$('button.egrd').on('click', function(){
-    $('.egrd:checkbox:checked').each(function(){
-        $l = $(this).val();
+var $links = [];
+$("button.egrd").on("click", function(){
+    $(".egrd:checkbox:checked").each(function(){
+        var $l = $(this).val();
         $links.push($l);
         console.log($l);
     });

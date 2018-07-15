@@ -26,7 +26,7 @@ function deleteRepos(link){
 }
 
 //once a repo a deleted, call function to delete next repo
-chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab){
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo){
     if(changeInfo.url === "https://github.com/" && tabId===newTabId){
         console.log("Github Repo Deleted Successfully, removing tab: "+newTabId);
         chrome.tabs.remove(newTabId);

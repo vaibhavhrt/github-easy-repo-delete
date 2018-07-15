@@ -29,7 +29,8 @@ $("button.egrd").on("click", function(){
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         if (request.greeting == "DEL OK"){
-            console.log("Successfully deleted all repos!")
+            console.log("Successfully deleted all repos!");
             sendResponse({farewell: "THANKS"});
         }
-});
+    }
+);

@@ -1,0 +1,22 @@
+{
+  "name": "github-easy-repo-delete",
+  "version": "1.0.0",
+  "description": "eslint",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vaibhavhrt/github-easy-repo-delete.git"
+  },
+  "keywords": [
+    "eslint"
+  ],
+  "author": "Vaibhav Vishal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vaibhavhrt/github-easy-repo-delete/issues"
+  },
+  "homepage": "https://github.com/vaibhavhrt/github-easy-repo-delete#readme"
+}

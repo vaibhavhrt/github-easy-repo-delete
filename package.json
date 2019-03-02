@@ -1,22 +1,63 @@
 {
+  "author": "Vaibhav Vishal <vaibhav.hrt@gmail.com> (https://vaibhavvishal.me/)",
   "name": "github-easy-repo-delete",
-  "version": "1.0.0",
-  "description": "eslint",
+  "version": "0.1.0",
+  "description": "Helps you with deleting github repos easily",
   "main": "index.js",
-  "scripts": {
-    "test": "test"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vaibhavhrt/github-easy-repo-delete.git"
   },
-  "keywords": [
-    "eslint"
-  ],
-  "author": "Vaibhav Vishal",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/vaibhavhrt/github-easy-repo-delete/issues"
   },
-  "homepage": "https://github.com/vaibhavhrt/github-easy-repo-delete#readme"
+  "homepage": "https://github.com/vaibhavhrt/github-easy-repo-delete#readme",
+  "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
+    "axios": "^0.18.0",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3"
+  },
+  "scripts": {
+    "build": "set NODE_ENV=production&& node utils/build.js",
+    "start": "node utils/webserver.js"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
+    "@hot-loader/react-dom": "^16.8.3",
+    "acorn": "^6.1.1",
+    "babel-eslint": "^9.0.0",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^1.0.1",
+    "copy-webpack-plugin": "^5.0.0",
+    "css-loader": "^2.1.0",
+    "eslint": "^5.15.0",
+    "eslint-config-react-app": "^3.0.7",
+    "eslint-plugin-flowtype": "^2.50.3",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "file-loader": "^3.0.1",
+    "fs-extra": "^7.0.1",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "prettier-eslint": "^8.8.2",
+    "react-hot-loader": "^4.7.1",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3",
+    "webpack-dev-server": "^3.2.1",
+    "write-file-webpack-plugin": "^4.5.0"
+  }
 }

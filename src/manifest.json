@@ -1,22 +1,15 @@
 {
   "manifest_version": 2,
-
   "name": "Easy Github Repo Delete",
-  "description": "Work in Progress",
-  "version": "0.1.1",
-
   "icons": {
-    "16": "img/icon16.png",
-    "48": "img/icon48.png",
-    "128": "img/icon128.png"
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
   },
-  
   "browser_action": {
-    "default_icon": "/img/icon19.png",
-    "default_popup": "/html/popup.html",
+    "default_icon": "icon19.png",
     "default_title": "Easy Github Repo Delete"
   },
-  
   "permissions": [
     "contextMenus",
     "tabs",
@@ -24,11 +17,10 @@
     "https://github.com/*?tab=repositories",
     "https://github.com/*"
   ],
-  
   "background": {
-    "scripts": ["js/background.js"]
+    "scripts": ["background.bundle.js"]
   },
-
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "content_scripts": [
 	{
 		"matches": ["https://github.com/*?tab=repositories"],

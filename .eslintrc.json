@@ -1,32 +1,50 @@
 {
     "env": {
         "browser": true,
+        "webextensions": true,
         "commonjs": true,
         "es6": true,
-        "jquery": true,
-        "webextensions": true
+        "jest": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "react-app"
+    ],
     "parserOptions": {
         "ecmaVersion": 2018,
+        "ecmaFeatures": {
+            "jsx": true
+        },
         "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "settings": {
+        "react": {
+          "version": "detect"
+        }
     },
     "rules": {
         "indent": [
             "error",
             4
         ],
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
         "quotes": [
             "error",
-            "double"
+            "single"
         ],
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "comma-dangle": [
+            "error",
+            "always-multiline"
+        ],
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "react/jsx-no-duplicate-props": [1, { "ignoreCase": false }]
     }
 }

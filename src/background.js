@@ -3,6 +3,21 @@ import './img/icon19.png';
 import './img/icon48.png';
 import './img/icon128.png';
 
+const CONTENT_JS_FILE = 'content.bundle.js';
+
+// Open index.html instead of popup on Browser Action Click
+chrome.browserAction.onClicked.addListener((activeTab) => {
+    chrome.tabs.create({ url: chrome.runtime.getURL('index.html') });
+});
+
+// Insert content Script on page load
+const githubUrlRegex = /https:\/\/github\.com.*/;
+chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+    if(changeInfo.status==='complete' && githubUrlRegex.test(tab.url)){
+        chrome.tabs.executeScript(tabId, { file: CONTENT_JS_FILE });
+    }
+});
+
 var newTabId;
 var linksToDelete = [];
 var i;
@@ -21,7 +36,7 @@ chrome.runtime.onMessage.addListener(
 //delete one repo at a time
 function deleteRepos(link){
     chrome.tabs.create({
-        url: `https://www.github.com/${link}/settings?egrd=True`,
+        url: `${link}/settings?egrd=True`,
         active: false,
     }, function(tab){
         console.log(`Created new tab with id: ${tab.id} to delete the github repo: ${link}`);
@@ -32,7 +47,7 @@ function deleteRepos(link){
 
 //once a repo a deleted, call function to delete next repo
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo){
-    if(changeInfo.url === `https://github.com/` && tabId===newTabId){
+    if(changeInfo.url === 'https://github.com/' && tabId===newTabId){
         console.log(`Github Repo Deleted Successfully, removing tab: ${newTabId}`);
         chrome.tabs.remove(newTabId);
         //Check if there is any more repos to deleted

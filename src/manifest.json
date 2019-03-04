@@ -14,21 +14,11 @@
     "contextMenus",
     "tabs",
 	"activeTab",
-    "https://github.com/*?tab=repositories",
-    "https://github.com/*"
+    "*://github.com/*?tab=repositories",
+    "*://github.com/*"
   ],
   "background": {
     "scripts": ["background.bundle.js"]
   },
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
-  "content_scripts": [
-	{
-		"matches": ["https://github.com/*?tab=repositories"],
-		"js": ["js/vendor/jquery-3.3.1.min.js", "js/addDelBtn.js"]
-	},
-	{
-		"matches": ["https://github.com/*/*/settings?egrd=True"],
-		"js": ["js/vendor/jquery-3.3.1.min.js", "js/delRepo.js"]
-	}
-  ]
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

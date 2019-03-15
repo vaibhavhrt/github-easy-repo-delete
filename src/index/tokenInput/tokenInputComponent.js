@@ -3,11 +3,55 @@ import PropTypes from 'prop-types';
 
 // Material UI
 import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
-const styles = theme => ({});
+const styles = theme => ({
+    root: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: theme.spacing.unit,
+    },
+    submit: {
+        margin: `0 ${theme.spacing.unit}px`,
+    },
+});
 
 const TokenInputComponent = props => {
-    return <p>Input Token Box</p>;
+    const { classes, token, onSubmit, onChange } = props;
+    return (
+        <div className={classes.root}>
+            <form onSubmit={onSubmit}>
+                <TextField
+                    required
+                    variant='outlined'
+                    id='id_token'
+                    name='token'
+                    label='API Token'
+                    placeholder='Enter Github API Token'
+                    value={token || ''}
+                    onChange={onChange}
+                />
+                <Button
+                    type='submit'
+                    color='primary'
+                    variant='contained'
+                    size='large'
+                    className={classes.submit}
+                >
+                    Save
+                </Button>
+            </form>
+        </div>
+    );
+};
+
+TokenInputComponent.propTypes = {
+    classes: PropTypes.object.isRequired,
+    token: PropTypes.string,
+    onSubmit: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(TokenInputComponent);

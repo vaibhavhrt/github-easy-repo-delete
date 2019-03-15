@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 
 // Material UI
 import { withStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 import TokenInputContainer from './tokenInput/tokenInputContainer';
 
@@ -14,6 +16,8 @@ const styles = theme => ({
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
+        margin: `${theme.spacing.unit * 3}px auto`,
+        padding: theme.spacing.unit,
     },
 });
 
@@ -21,10 +25,11 @@ class App extends React.Component{
     render(){
         const { classes, token } = this.props;
         return (
-            <div className={classes.root}>
+            <Paper className={classes.root} elevation={2}>
+                <Typography variant='h3' component='h1' color='secondary'>Github Easy Repo Delete</Typography>
                 {!token && <TokenInputContainer />}
-                <h4>Repo List</h4>
-            </div>
+                {token && <Typography variant='overline' align='center'>Repo Token: {token}</Typography>}
+            </Paper>
         );
     }
 }

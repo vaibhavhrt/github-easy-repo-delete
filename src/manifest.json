@@ -11,9 +11,6 @@
     "default_title": "Easy Github Repo Delete"
   },
   "permissions": [
-    "contextMenus",
-    "tabs",
-	"activeTab",
     "*://github.com/*?tab=repositories",
     "*://github.com/*"
   ],

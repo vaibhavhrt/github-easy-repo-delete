@@ -2,7 +2,7 @@
 Download at Chrome Webstore https://chrome.google.com/webstore/detail/easy-github-repo-delete/adoiopbekmljhndnefhmagpfgioedfae
 ## Use extreme caution when using this, once a github repo is deleted it's NEVER coming back.
 
-### Chrome only for now)
+### Chrome only (for now)
 
 Deleting repos on github can a little long process(and for the right reasons because its an irreversible action) and when you have a lot of github repos to delete it can be very time consuming.
 

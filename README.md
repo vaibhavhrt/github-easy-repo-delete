@@ -1,5 +1,5 @@
 # github-easy-repo-delete
-## WIP COme Back Later
+Download at Chrome Webstore https://chrome.google.com/webstore/detail/easy-github-repo-delete/adoiopbekmljhndnefhmagpfgioedfae
 ## Use extreme caution when using this, once a github repo is deleted it's NEVER coming back.
 
 ### Chrome only

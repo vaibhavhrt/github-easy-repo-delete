@@ -1,12 +1,12 @@
 {
   "author": "Vaibhav Vishal <vaibhav.hrt@gmail.com> (https://vaibhavvishal.me/)",
   "name": "github-easy-repo-delete",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Helps you with deleting github repos easily",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vaibhavhrt/github-easy-repo-delete.git"
+    "url": "https://github.com/vaibhavhrt/github-easy-repo-delete.git"
   },
   "license": "MIT",
   "bugs": {

@@ -8,7 +8,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 import TokenInputContainer from './tokenInput/tokenInputContainer';
-import RepoListContainer from './repoList/comtainer';
+import RepoListContainer from './repoList/container';
 
 const styles = theme => ({
     root: {

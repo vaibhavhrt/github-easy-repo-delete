@@ -5,6 +5,9 @@ import { Waypoint } from 'react-waypoint';
 // Material UI
 import { withStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
+import List from '@material-ui/core/List';
+
+import ListItemContainer from './ListItem/container';
 
 const styles = theme => ({
     root: {
@@ -17,14 +20,15 @@ const RepoListComponent = props => {
     return (
         <div className={classes.root}>
             <Divider />
-            List of repos
-            {repos.map(repo => <li key={repo.id}>{repo.name}</li>)}
-            {hasMore && <div>
-                {!isLoading && <Waypoint
-                    onEnter={() => loadFunc(true)}
-                />}
-                Loading...
-            </div>}
+            <List>
+                {repos.map(repo => <ListItemContainer key={repo.id} repo={repo} />)}
+                {hasMore && <div>
+                    {!isLoading && <Waypoint
+                        onEnter={() => loadFunc(true)}
+                    />}
+                    Loading...
+                </div>}
+            </List>
         </div>
     );
 };

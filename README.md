@@ -9,4 +9,4 @@ Deleting repos on github can a little long process(and for the right reasons bec
 Click the extension icon on top-right to get started.
 Lists all your repo with delete button when provided with Github personal access token, you can get one at  https://github.com/settings/tokens
 
-After clicking delete that repo will get deleted without any warning, so better be carful.
+After clicking delete that repo will get deleted without any warning, so better be careful.

@@ -24,7 +24,7 @@ export default store => next => action => {
     const headers = token ? { 'Authorization': `token ${token}` } : undefined;
 
     let { endpoint } = callAPI;
-    const { method='GET', data, types, afterSuccess } = callAPI;
+    const { method='GET', data, types, afterSuccess, passForward } = callAPI;
 
     if (typeof endpoint === 'function') {
         endpoint = endpoint(state);
@@ -41,7 +41,7 @@ export default store => next => action => {
     }
 
     const actionWith = data => {
-        const finalAction = { ...action, ...data };
+        const finalAction = { ...action, ...data, ...passForward };
         delete finalAction[CALL_API];
         return finalAction;
     };

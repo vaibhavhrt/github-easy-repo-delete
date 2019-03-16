@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import RepoListComponent from './component';
-import { fetchRepoList } from '../redux/actions/auth';
+import { fetchRepoList } from '../redux/actions/repo';
 
 class RepoListContainer extends React.Component{
     componentDidMount(){
@@ -11,16 +11,23 @@ class RepoListContainer extends React.Component{
     }
 
     render(){
-        return <RepoListComponent />;
+        const { repo, fetchRepoList } = this.props;
+        return <RepoListComponent repos={repo.list} isLoading={repo.isFetching} hasMore={repo.hasMore} loadFunc={fetchRepoList} />;
     }
 }
 
 RepoListContainer.propTypes = {
+    repo: PropTypes.object.isRequired,
     fetchRepoList: PropTypes.func.isRequired,
 };
 
+const mapStateToProps = state => {
+    const { repo } = state;
+    return { repo };
+};
+
 const mapDispatchToProps = dispatch => ({
-    fetchRepoList: () => dispatch(fetchRepoList()),
+    fetchRepoList: next => dispatch(fetchRepoList(next)),
 });
 
-export default connect(null, mapDispatchToProps)(RepoListContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(RepoListContainer);

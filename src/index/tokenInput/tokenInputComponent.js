@@ -19,7 +19,7 @@ const styles = theme => ({
 });
 
 const TokenInputComponent = props => {
-    const { classes, token, onSubmit, onChange } = props;
+    const { classes, form, onSubmit, onChange } = props;
     return (
         <div className={classes.root}>
             <form onSubmit={onSubmit}>
@@ -30,7 +30,7 @@ const TokenInputComponent = props => {
                     name='token'
                     label='API Token'
                     placeholder='Enter Github API Token'
-                    value={token || ''}
+                    value={form.data.token || ''}
                     onChange={onChange}
                 />
                 <Button
@@ -50,6 +50,7 @@ const TokenInputComponent = props => {
 TokenInputComponent.propTypes = {
     classes: PropTypes.object.isRequired,
     token: PropTypes.string,
+    form: PropTypes.object.isRequired,
     onSubmit: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
 };

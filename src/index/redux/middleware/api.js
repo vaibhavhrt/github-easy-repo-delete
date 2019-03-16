@@ -1,11 +1,7 @@
 import axios from 'axios';
 import { makeErrorObject } from '../../../lib/commonMethods';
 
-let API_ROOT = 'http://127.0.0.1:8000/';
-if (process.env.NODE_ENV === 'production') {
-    API_ROOT = 'http://recruit-ai.ap-south-1.elasticbeanstalk.com/';
-}
-
+const API_ROOT = 'https://api.github.com/';
 // Fetches an API response.
 const callApi = (method='POST', endpoint='/', data, headers) => {
     const url = (endpoint.indexOf(API_ROOT) === -1) ? API_ROOT + endpoint : endpoint;
@@ -25,7 +21,7 @@ export default store => next => action => {
 
     const state = store.getState();
     const { token } = state.auth;
-    const headers = token ? { 'Authorization': `Token ${token}` } : undefined;
+    const headers = token ? { 'Authorization': `token ${token}` } : undefined;
 
     let { endpoint } = callAPI;
     const { method='GET', data, types, afterSuccess } = callAPI;

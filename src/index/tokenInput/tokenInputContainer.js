@@ -5,32 +5,34 @@ import { connect } from 'react-redux';
 import TokenInputComponent from './tokenInputComponent';
 
 // Actons
-import { setAuthToken } from '../redux/actions/auth';
+import { setAuthData, onChangeAuthForm } from '../redux/actions/auth';
 
 class TokenInputContainer extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = { token: null };
-    }
-
-    onChange = e => this.setState({ token: e.target.value });
-
     onSubmit = e => {
         e.preventDefault();
-        return this.props.setAuthToken(this.state.token);
+        return this.props.setAuthToken();
     }
 
     render(){
-        return <TokenInputComponent onSubmit={this.onSubmit} onChange={this.onChange} token={this.state.token} />;
+        const { onChange, form } = this.props;
+        return <TokenInputComponent onSubmit={this.onSubmit} onChange={onChange} form={form} />;
     }
 }
 
 TokenInputContainer.propTypes = {
     setAuthToken: PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
+    form: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = state => {
+    const { form } = state.auth;
+    return { form };
 };
 
 const mapDispatchToProps = dispatch => ({
-    setAuthToken: token => dispatch(setAuthToken(token)),
+    setAuthToken: token => dispatch(setAuthData(token)),
+    onChange: e => dispatch(onChangeAuthForm(e)),
 });
 
-export default connect(null, mapDispatchToProps)(TokenInputContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(TokenInputContainer);

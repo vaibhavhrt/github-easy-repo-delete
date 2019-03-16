@@ -8,6 +8,7 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 import TokenInputContainer from './tokenInput/tokenInputContainer';
+import RepoListContainer from './repoList/comtainer';
 
 const styles = theme => ({
     root: {
@@ -28,7 +29,8 @@ class App extends React.Component{
             <Paper className={classes.root} elevation={2}>
                 <Typography variant='h3' component='h1' color='secondary'>Github Easy Repo Delete</Typography>
                 {!token && <TokenInputContainer />}
-                {token && <Typography variant='overline' align='center'>Repo Token: {token}</Typography>}
+                {!!token && <Typography variant='overline' align='center'>Repo Token: {token}</Typography>}
+                {!!token && <RepoListContainer />}
             </Paper>
         );
     }

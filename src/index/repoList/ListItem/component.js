@@ -6,40 +6,40 @@ import dateFormatter from '../../../lib/dateFormatter';
 // Material UI
 import { withStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
 
-// Material Icons
-import LinkIcon from '@material-ui/icons/Link';
-
-const styles = theme => ({});
+const styles = theme => ({
+    inline: {
+        display: 'inline',
+    },
+});
 
 const ListItemComponent = props => {
-    const { repo, deleteRepo } = props;
+    const { classes, repo, deleteRepo } = props;
     return (
         <ListItem>
+            <ListItemAvatar>
+                <Avatar alt={`${repo.owner.login}'s avatar`} src={repo.owner.avatar_url} />
+            </ListItemAvatar>
             <ListItemText
                 primary={repo.full_name}
                 secondary={
                     <>
-                        <Typography component='span' color='textSecondary'>Last Updated: {dateFormatter(repo.updated_at)}</Typography>
+                        <Typography variant='subheading' component='span' color='textPrimary'>{repo.description}</Typography>
+                        <Typography component='span' color='textSecondary' className={classes.inline}>
+                            Language: {repo.language} {repo.license && `License: ${repo.license.name}` } Last Updated: {dateFormatter(repo.updated_at)}&nbsp;
+                        </Typography>
+                        <Typography component='a' color='textSecondary' className={classes.inline} href={repo.html_url} target='blank' rel='noopener noreferrer'>View on Github</Typography>
                         {!!repo.deleteError && <Typography variant='overline' color='error'>{repo.deleteError.message}</Typography>}
                     </>
                 }
             />
             <ListItemSecondaryAction>
-                <IconButton
-                    color='primary'
-                    component='a'
-                    href={repo.html_url}
-                    target='blank'
-                    rel='noopener noreferrer'
-                >
-                    <LinkIcon />
-                </IconButton>
                 <Button
                     variant='contained'
                     disabled={repo.isDeleting}
@@ -54,6 +54,7 @@ const ListItemComponent = props => {
 };
 
 ListItemComponent.propTypes = {
+    classes: PropTypes.object.isRequired,
     repo: PropTypes.object.isRequired,
     deleteRepo: PropTypes.func.isRequired,
 };

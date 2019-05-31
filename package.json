@@ -44,7 +44,7 @@
     "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^5.0.0",
-    "css-loader": "^2.1.0",
+    "css-loader": "^2.1.1",
     "eslint": "^5.15.0",
     "eslint-config-react-app": "^3.0.7",
     "eslint-plugin-flowtype": "^2.50.3",
